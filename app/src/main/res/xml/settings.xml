@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="первая категория настроек">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="cb1"
+            android:summary="описание пункта с чекбоксом"
+            android:title="первый пункт настроек" />
+        <EditTextPreference
+            android:defaultValue="какой-нибудь текст"
+            android:dialogTitle="напишите здесь какой-нибудь текст"
+            android:key="et1"
+            android:summary="это пункт с текстовым полем, нажмите и проверьте!"
+            android:title="второй пункт настроек" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="вторая категория настроек">
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="выберите что-нибудь"
+            android:entries="@array/text_style"
+            android:entryValues="@array/text_style"
+            android:key="list1"
+            android:summary="это пункт со списком вариантов, нажмите и проверьте!"
+            android:title="третий пункт настроек" />
+        <SwitchPreference
+            android:key="switch1"
+            android:summaryOff="рычажок выключен"
+            android:summaryOn="рычажок включён"
+            android:switchTextOff="четвёртый пункт выключен"
+            android:switchTextOn="четвёртый пункт включён" />
+        <PreferenceScreen
+            android:key="new_screen"
+            android:summary="перейти к дополнительным настройкам"
+            android:title="пятый пункт настроек">
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="cb2"
+                android:summary="пункт настроек 5.1"
+                android:title="первый" />
+            <CheckBoxPreference
+                android:key="cb3"
+                android:summary="пункт настроек 5.2"
+                android:title="второй" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="влияет на системные настройки"
+            android:title="крутой шестой пункт">
+            <intent android:action="android.settings.AIRPLANE_MODE_SETTINGS" />
+        </PreferenceScreen>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="cb4"
+            android:summary="влияет на восьмой пункт!"
+            android:title="седьмой пункт" />
+        <EditTextPreference
+            android:dependency="cb4"
+            android:key="et2"
+            android:summary="работает, если есть галочка на 7 пункте"
+            android:title="восьмой пункт" />
+    </PreferenceCategory>
+</PreferenceScreen>
